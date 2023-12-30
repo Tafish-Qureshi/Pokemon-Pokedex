@@ -1,0 +1,23 @@
+body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    margin: 0;
+    background-image: url(/code/img/Bulbasaur_Charmander_Squirtle.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+header {
+    padding: 10px;
+    color: black;
+    font-size: 24px;
+}
+
+.pokedex img{
+    position: relative;
+    top: 369px;
+    left: 319px;
+}

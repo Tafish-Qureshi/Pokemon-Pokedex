@@ -1,0 +1,113 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #ff0000;
+    margin: 0;
+    padding: 0;
+}
+
+#battle-container {
+    text-align: center;
+    max-width: 1500px;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.team-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.pokemon {
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 125px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#battle-log {
+    border: 1px solid #ddd;
+    max-height: 75px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+
+#start-battle,
+#attack-btn {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#attack-btn {
+    background-color: #008cff;
+    margin-left: 10px;
+}
+
+#opponent-team {
+    background-image: url('/code/img/team2.jpg');
+    background-size: 16.7% auto;
+    background-repeat: repeat;
+    background-color: #007185;
+
+}
+
+#player-team {
+    background-image: url('/code/img/team1.jpg');
+    background-size: 16.7% auto;
+    background-repeat: repeat; 
+    background-color: #587e00;
+
+}
+
+
+#opponent-pokemon {
+    background-color: #007185;
+}
+
+#player-pokemon {
+    background-color: #587e00;
+}
+
+#opponent {
+    background-color: #00d9ff;
+    margin: 0px;
+}
+
+#player {
+    background-color: #b3ff00;
+    margin: 0px;
+}
+
+.battle-field {
+    background-image: url('/code/img/battle.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #eeeeee;
+    padding: 20px;
+}
+
+
+.button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
