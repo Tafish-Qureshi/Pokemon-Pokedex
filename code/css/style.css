@@ -302,6 +302,10 @@ h1 {
 
 .info-button {
     background-color: #3498db;
+    border-radius: 15%;
+    border: none;
+    margin: 4px;
+    padding: 4px;
     color: #fff;
 }
 
