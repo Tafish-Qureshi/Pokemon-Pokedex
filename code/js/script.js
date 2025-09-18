@@ -82,17 +82,13 @@ async function displayAllPokemonData() {
 
 async function showAdditionalInfoOffcanvas(pokemonUrl, buttonElement) {
     try {
-        // Fetch additional details for the selected Pokemon
         const pokemonDetails = await getPokemonData(pokemonUrl);
 
-        // Create and display the offcanvas
         const offcanvas = document.createElement('div');
         offcanvas.classList.add('offcanvas');
 
-        // Dynamically generate HTML content for the offcanvas
         let offcanvasContent = '';
 
-        // Show types with images
         if (pokemonDetails.types && Array.isArray(pokemonDetails.types)) {
             const typesWithImages = pokemonDetails.types.map(type => {
                 const typeName = type.type.name;
@@ -103,7 +99,6 @@ async function showAdditionalInfoOffcanvas(pokemonUrl, buttonElement) {
             offcanvasContent += `<p><strong>Types:</strong> ${typesWithImages}</p>`;
         }
 
-        // Display other information
         for (const property in pokemonDetails) {
             if (
                 pokemonDetails.hasOwnProperty(property) &&
@@ -131,14 +126,20 @@ async function showAdditionalInfoOffcanvas(pokemonUrl, buttonElement) {
         }
 
         offcanvas.innerHTML = `
-            <button class="close-btn" onclick="closeOffcanvas()">Close</button>
-            ${offcanvasContent}
+            <div class="offcanvas-content">
+                <button class="close-btn" onclick="closeOffcanvas()">Close</button>
+                ${offcanvasContent}
+            </div>
         `;
 
-        // Append the offcanvas to the body
         document.body.appendChild(offcanvas);
 
-        // Close the offcanvas when clicking outside of it
+        // 👉 Active class pas toevoegen na reflow
+        requestAnimationFrame(() => {
+            offcanvas.classList.add("active");
+        });
+
+        // Klik buiten de box sluit hem ook
         window.addEventListener('click', function (event) {
             if (event.target === offcanvas) {
                 closeOffcanvas();
@@ -153,7 +154,9 @@ async function showAdditionalInfoOffcanvas(pokemonUrl, buttonElement) {
 function closeOffcanvas() {
     const offcanvas = document.querySelector('.offcanvas');
     if (offcanvas) {
-        offcanvas.remove();
+        offcanvas.classList.remove("active");
+        // wacht tot animatie klaar is voordat element verdwijnt
+        setTimeout(() => offcanvas.remove(), 100);
     }
 }
 

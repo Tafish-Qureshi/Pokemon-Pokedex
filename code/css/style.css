@@ -8,12 +8,20 @@ body {
     padding: 0;
 }
 
+h2{
+    text-align: center;
+}
+
+img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 nav {
     display: flex;
     justify-content: space-between;
     position: sticky;
     top: 10px;
-    background: rgba(0,0,0,0.5);
     z-index: 10;
 }
 
@@ -31,7 +39,14 @@ nav {
 #welkomButton,
 #teamBuilderButton,
 #battle {
-    margin: 10px;
+    background: linear-gradient(125deg, #D00000 50%, #000 50%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    margin: 0 5px;
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
 }
 
 #teamBuilderButton {
@@ -83,19 +98,26 @@ h1 {
 
 
 .pokemon-container {
-  background: linear-gradient(145deg, #F00000, #D00000); /* subtiele achtergrond */
-  border-radius: 16px; /* ronde hoeken */
-  padding: 15px;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.15); /* zachte schaduw */
-  text-align: center;
-  max-width: 250px;
-  margin: 20px auto;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  color: black;
+    background: linear-gradient(145deg, #F00000, #D00000); 
+    border-radius: 16px; 
+    padding: 15px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15); 
+    text-align: center;
+    width: 100%;
+    max-width: 250px;
+    min-width: 200px;
+    margin: 0 auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: black;
+    box-sizing: border-box;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
 }
 
 .pokemon-container:hover {
-  transform: translateY(-5px) scale(1.05); /* kleine hover animatie */
+  transform: translateY(-5px) scale(1.05); 
   box-shadow: 0 10px 18px rgba(0,0,0,0.25);
 }
 
@@ -104,12 +126,12 @@ h1 {
   max-width: 100%;
   height: auto;
   margin: 0 auto 10px;
-  border-radius: 12px; /* ronde hoeken voor de afbeelding */
+  border-radius: 12px; 
   transition: transform 0.3s ease;
 }
 
 .pokemon-container img:hover {
-  transform: scale(1.1); /* zoom effect bij hover */
+  transform: scale(1.1); 
 }
 
 
@@ -162,58 +184,31 @@ h1 {
     background: #00f;
 }
 
-.icon {
-    border-radius: 50%;
-    height: 70px;
-    width: 70px;
-    margin: auto;
-    transition: filter 0.2s, transform 0.2s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.icon img {
-    height: 60%;
-    width: 60%;
-}
-
-.icon:hover {
-    filter: saturate(200%);
-    transform: scale(1.1);
-    cursor: pointer;
-}
-
 .icons {
-    display: flex;
-    flex-direction: row;
-    position: relative;
+  display: flex;          
+  justify-content: center; 
+  gap: 8px;
+  flex-wrap: wrap;        
 }
 
-.icons #typeInfo {
-    visibility: hidden;
-    width: 120px;
-    background: #000;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
-    position: absolute;
-    z-index: 1;
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
-.icons:hover #typeInfo {
-    visibility: visible;
-    opacity: 1;
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin: 1px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 .pokemon-type {
     width: 90px;
+    margin: 0 auto; 
 }
 
-/* Type backgrounds */
+
 .bug      { background: #92BC2C; }
 .dark     { background: #595761; }
 .dragon   { background: #0C69C8; }
@@ -234,34 +229,71 @@ h1 {
 .water    { background: #539DDF; }
 
 .info-button {
-    background: #3498db;
-    border-radius: 15%;
-    border: none;
-    margin: 10px;
-    padding: 4px;
+    background: linear-gradient(125deg, #D00000 50%, #000 50%);
     color: #fff;
+    border: none;
+    border-radius: 8px;
+    margin: 12px auto 0;
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+
+.offcanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.95); 
+  backdrop-filter: blur(8px); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  opacity: 0;               
+  pointer-events: none;     
+  transition: all 0.4s ease;
+}
+
+.offcanvas.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
+.offcanvas-content {
+  background: #D00000;
+  border-radius: 16px;
+  padding: 30px;
+  max-width: 800px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  transform: translateY(-20px);
+  transition: transform 0.3s ease;
+}
+
+.offcanvas.active .offcanvas-content {
+  transform: translateY(0);
 }
 
 .close-btn {
-    background: maroon;
+    border:none;
+    font-size: medium;
+    padding: 10px 15px;
+    background: #000;
     color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
 }
 
-.offcanvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 999;
+.close-btn:hover {
+    background: #f00;
+    color: #000;
 }
 
-/* Responsive */
 @media screen and (max-width: 899px) {
     nav {
         flex-direction: column;
