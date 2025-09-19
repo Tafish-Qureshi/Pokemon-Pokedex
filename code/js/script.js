@@ -145,7 +145,6 @@ async function showAdditionalInfoOffcanvas(pokemonUrl, buttonElement) {
                 closeOffcanvas();
             }
         });
-
     } catch (error) {
         console.error('Error fetching additional info:', error);
     }
